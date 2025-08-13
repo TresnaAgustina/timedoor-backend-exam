@@ -1,28 +1,3 @@
-## Installation
-
-cd TImedoorBootcampTest2024
-
-cp .env.example .env
-
-Make sure you adjust the database configuration in this .env file.
-
-Generate Application Key:
-
-php artisan key:generate
-
-Run Database Migrations:
-
-php artisan migrate
-
-Run the Seeder:
-
-php artisan db:seed
-
-Run the Server:
-
-php artisan serve
-
-
 # Timedoor Backend Exam
 
 ## Installation
