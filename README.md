@@ -1,62 +1,72 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Author & Book Management API Project (Laravel 12)
+This is a simple API project built with Laravel 12 to manage Author and Book data. This project is designed as API-first and does not use Vite for frontend asset compilation, so its main focus is on backend functionality.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+System Requirements
+Ensure your local environment meets the following requirements before you begin:
 
-## About Laravel
+PHP >= 8.2
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Composer version 2.x
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+A database (MySQL, MariaDB, or PostgreSQL is recommended)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Git
 
-## Learning Laravel
+Installation Steps
+Follow these steps to get the project running on your local machine.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. Clone the Repository
+Open your terminal or command prompt, then clone this repository to your local directory.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+git clone https://github.com/username/project-name.git
+cd project-name
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+(Replace https://github.com/username/project-name.git with your actual repository URL)
 
-## Laravel Sponsors
+2. Install PHP Dependencies
+Install all the required Laravel dependencies using Composer. This command will download all libraries listed in composer.json.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+composer install
 
-### Premium Partners
+3. Create Environment File (.env)
+Copy the .env.example file to a new file named .env. This file will hold all your environment-specific configurations, including database credentials.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+cp .env.example .env
 
-## Contributing
+4. Generate Application Key
+Every Laravel application requires a unique application key for secure encryption. Generate this key with the following Artisan command:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+php artisan key:generate
 
-## Code of Conduct
+5. Configure the Database
+Open the .env file you just created with a text editor and adjust the database configuration to match your local setup.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel12_project_db  # Replace with your database name
+DB_USERNAME=root                # Replace with your database username
+DB_PASSWORD=                    # Replace with your database password (leave blank if none)
 
-## Security Vulnerabilities
+Important: Make sure you have already created the database (laravel12_project_db or another name) in your database management system (e.g., via phpMyAdmin, DBeaver, or the command line).
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+6. Run Database Migrations
+Once the database is configured, run the migrations to create all the necessary tables (like authors and books) in your database.
 
-## License
+php artisan migrate
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# timedoor-backend-exam
+7. (Optional) Run Seeders
+If the project includes database seeders for populating initial data (dummy data), you can run them with this command:
+
+php artisan db:seed
+
+8. Run the Application
+The project is now ready to run! Use Laravel's built-in development server with the following command:
+
+php artisan serve
+
+Your application will be running and accessible at the URL displayed in the terminal, typically:
+
+http://127.0.0.1:8000
+
+You are now ready to start using or developing the API.
